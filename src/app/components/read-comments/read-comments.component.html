@@ -1,0 +1,8 @@
+<div *ngIf="comment != undefined">
+    <h3>{{ comment.title }}</h3>
+    <h5>{{ comment.text }}</h5>
+    <ul>
+        <li>{{ comment.creator }}</li>
+        <li>{{ comment.dateCreation | date:'dd/MM/yyyy'  }}</li>
+    </ul>
+</div>

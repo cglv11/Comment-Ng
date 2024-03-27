@@ -1,0 +1,26 @@
+<h3 class="mt-3">{{ action }} Comentario</h3>
+<form [formGroup]="addComment" (ngSubmit)="addEditComment()">
+    <div class="mb-3">
+        <label for="titulo" class="fo rm-label">Titulo</label>
+        <input formControlName="title" type="text" class="form-control" id="titulo">
+        <span *ngIf="addComment.get('title')?.invalid && addComment.get('title')?.touched" class="text-danger">
+            El <strong>titulo</strong> es requerido
+        </span>
+    </div>
+    <div class="mb-3">
+        <label for="creador" class="form-label">Creador</label>
+        <input formControlName="creator" type="text" class="form-control" id="Creador">
+        <span *ngIf="addComment.get('creator')?.invalid && addComment.get('creator')?.touched" class="text-danger">
+            El <strong>creador</strong> es requerido
+        </span>
+    </div>
+    <div class="mb-3">
+        <label for="texto" class="form-label">Texto</label>
+        <textarea formControlName="text" class="form-control" id="text" rows="8" autocomplete="off"></textarea>
+        <span *ngIf="addComment.get('text')?.invalid && addComment.get('text')?.touched" class="text-danger" >
+            El <strong>texto</strong> es requerido
+        </span>
+      </div>
+      <button type="submit" [disabled]="addComment.invalid" class="btn btn-primary float-end">Aceptar</button>
+      <button type="button" routerLink="/" class="btn btn-secondary">Volver</button>
+</form>
